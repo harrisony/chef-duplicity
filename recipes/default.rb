@@ -32,7 +32,7 @@ ruby_block "python-path" do
     duplicity_profile.content "export PYTHONPATH='#{::Find.find(node["duplicity"]["dir"]).grep(/site-packages/).first}/'"
   end
   action :nothing
-  notifies :create_if_missing, resources(:file => "/etc/profile.d/duplicity.sh"), :immediately
+  notifies :create_if_missing, "file[/etc/profile.d/duplicity.sh]", :immediately
 end
 
 bash "install-duplicity" do
@@ -44,13 +44,13 @@ bash "install-duplicity" do
     python setup.py install --prefix=#{node["duplicity"]["dir"]})
   EOH
   action :nothing
-  notifies :create, resources(:ruby_block => "python-path"), :immediately
+  notifies :create, "ruby_block[python-path]", :immediately
   not_if "#{node["duplicity"]["dir"]}/bin/duplicity --version 2>&1 | grep #{node["duplicity"]["version"]}"
 end
 
 remote_file "#{Chef::Config[:file_cache_path]}/duplicity-#{node["duplicity"]["version"]}.tar.gz" do
   source node["duplicity"]["url"]
   checksum node["duplicity"]["checksum"]
-  notifies :run, resources(:bash => "install-duplicity"), :immediately
+  notifies :run, "bash[install-duplicity]", :immediately
   action :create_if_missing
 end
