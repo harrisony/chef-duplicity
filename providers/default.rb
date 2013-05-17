@@ -61,6 +61,7 @@ private
 def run_duplicity(sub_command, env)
   Chef::Mixin::Command.run_command(
     :command      => "duplicity #{sub_command}",
+    :environment  => env,
     :returns      => 0
   )
 end
