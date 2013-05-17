@@ -35,7 +35,7 @@ or Google Docs backends, please be cautious.  Also, pull requests are welcome!
 ``` ruby
 duplicity "/home/vagrant/test" do
   source "/home/vagrant/test"
-  destination "s3+http://duplicity-test"
+  destination "s3://s3-ap-southeast-2.amazonaws.com/example"
   aws_access_key "<AWS_ACCESS_KEY_ID>"
   aws_secret_access_key "<AWS_SECRET_ACCESS_KEY>"
   action :backup
