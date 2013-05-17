@@ -1,15 +1,11 @@
 name              "duplicity"
-maintainer        "Hector Castro"
-maintainer_email  "hectcastro@gmail.com"
+maintainer        "Harrison Conlin"
+maintainer_email  "me@harrisony.com"
 license           "Apache 2.0"
 description       "Installs and configures duplicity."
-version           "0.1.1"
+version           "0.2.0"
 recipe            "duplicity", "Installs and configures duplicity"
 
-%w{ build-essential python yum }.each do |d|
-  depends d
-end
-
-%w{ amazon centos }.each do |os|
+%w{ubuntu debian}.each do |os|
   supports os
 end

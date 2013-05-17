@@ -60,8 +60,7 @@ private
 
 def run_duplicity(sub_command, env)
   Chef::Mixin::Command.run_command(
-    :command      => "#{::File.join(node["duplicity"]["dir"], "bin", "duplicity")} #{sub_command}",
-    :environment  => { "PYTHONPATH" => "#{::Find.find(node["duplicity"]["dir"]).grep(/site-packages/).first}/" }.merge(env),
+    :command      => "duplicity #{sub_command}",
     :returns      => 0
   )
 end

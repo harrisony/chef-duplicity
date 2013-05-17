@@ -1,28 +1,25 @@
-# duplicity [![Build Status](https://secure.travis-ci.org/hectcastro/chef-duplicity.png?branch=master)](http://travis-ci.org/hectcastro/chef-duplicity)
+# duplicity [![Build Status](https://secure.travis-ci.org/harrisony/chef-duplicity.png?branch=master)](http://travis-ci.org/harrisony/chef-duplicity)
 
 ## Description
 
 Installs and configures [duplicity](http://duplicity.nongnu.org/), along with
 an LWRP for issuing backup, restore, and verification tasks.
 
+Based off the initial work of [Hector Castro](https://github.com/hectcastro) one day
+I plan to merge back Hector's changes. 
+
 ## Requirements
 
 ### Platforms
 
-* CentOS 6.3
+* Ubuntu
+* Debian
 
 ### Cookbooks
 
-* build-essential
 * python
-* yum
 
 ## Attributes
-
-* `node["duplicity"]["version"]` - Version of duplicity to install.
-* `node["duplicity"]["dir"]` - Directory to install into.
-* `node["duplicity"]["url"]` - URL to the duplicity archive.
-* `node["duplicity"]["checksum"]` - Checksum of the duplicity archive.
 
 ## Recipes
 
