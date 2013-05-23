@@ -1,0 +1,1 @@
+default['duplicity']['packages'] = %w{duplicity python-boto}
