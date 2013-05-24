@@ -25,7 +25,7 @@ action :backup do
     "PASSPHRASE"            => new_resource.passphrase
   })
 
-  new_resource.updated_by_last_action(status.exitstatus == 0)
+  new_resource.updated_by_last_action(true)
 end
 
 action :restore do
@@ -42,7 +42,7 @@ action :restore do
     "PASSPHRASE"            => new_resource.passphrase
   })
 
-  new_resource.updated_by_last_action(status.exitstatus == 0)
+  new_resource.updated_by_last_action(true)
 end
 
 action :verify do
@@ -56,7 +56,7 @@ action :verify do
     "PASSPHRASE"            => new_resource.passphrase
   })
 
-  new_resource.updated_by_last_action(status.exitstatus == 0)
+  new_resource.updated_by_last_action(true)
 end
 
 
