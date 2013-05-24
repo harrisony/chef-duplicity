@@ -18,7 +18,7 @@ define :duplicity_cron do
       d.aws_secret_access_key params[:aws_secret_access_key]
       d.run_action :backup
 
-      c = Chef::Resource:Cron.new("duplicity_#{params[:name]}", run_context)
+      c = Chef::Resource::CronD.new("duplicity_#{params[:name]}", run_context)
       c.minute params[:minute]
       c.hour params[:hour]
       c.user params[:user]
