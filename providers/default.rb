@@ -56,7 +56,6 @@ action :verify do
   new_resource.updated_by_last_action(status.exitstatus == 0)
 end
 
-private
 
 def run_duplicity(sub_command, env)
   Chef::Mixin::Command.run_command(
