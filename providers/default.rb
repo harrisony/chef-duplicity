@@ -21,7 +21,8 @@ action :backup do
 
   status = run_duplicity("#{base_command_options.join(" ")} #{new_resource.source} #{new_resource.destination}", {
     "AWS_ACCESS_KEY_ID"     => new_resource.aws_access_key,
-    "AWS_SECRET_ACCESS_KEY" => new_resource.aws_secret_access_key
+    "AWS_SECRET_ACCESS_KEY" => new_resource.aws_secret_access_key,
+    "PASSPHRASE"            => new_resource.passphrase
   })
 
   new_resource.updated_by_last_action(status.exitstatus == 0)
@@ -37,7 +38,8 @@ action :restore do
 
   status = run_duplicity("#{base_command_options.join(" ")} #{new_resource.source} #{new_resource.destination}", {
     "AWS_ACCESS_KEY_ID"     => new_resource.aws_access_key,
-    "AWS_SECRET_ACCESS_KEY" => new_resource.aws_secret_access_key
+    "AWS_SECRET_ACCESS_KEY" => new_resource.aws_secret_access_key,
+    "PASSPHRASE"            => new_resource.passphrase
   })
 
   new_resource.updated_by_last_action(status.exitstatus == 0)
@@ -50,7 +52,8 @@ action :verify do
 
   status = run_duplicity("#{new_resource.base_command_options.join(" ")} #{new_resource.source} #{new_resource.destination}", {
     "AWS_ACCESS_KEY_ID"     => new_resource.aws_access_key,
-    "AWS_SECRET_ACCESS_KEY" => new_resource.aws_secret_access_key
+    "AWS_SECRET_ACCESS_KEY" => new_resource.aws_secret_access_key,
+    "PASSPHRASE"            => new_resource.passphrase
   })
 
   new_resource.updated_by_last_action(status.exitstatus == 0)

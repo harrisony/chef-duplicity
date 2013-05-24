@@ -17,6 +17,7 @@ attribute :asynchronous_upload,       :kind_of => [ TrueClass, FalseClass ],  :d
 
 attribute :aws_access_key,            :kind_of => String
 attribute :aws_secret_access_key,     :kind_of => String
+attribute :passphrase     :kind_of => String
 attribute :s3_multipart_chunk_size,   :kind_of => Integer
 attribute :s3_use_multiprocessing,    :kind_of => [ TrueClass, FalseClass ],  :default => false
 attribute :s3_unencrypted_connection, :kind_of => [ TrueClass, FalseClass ],  :default => false
