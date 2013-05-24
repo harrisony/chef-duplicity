@@ -11,7 +11,7 @@ define :duplicity_cron do
   include_recipe "cron"
   ruby_block "duplicity" do
     block do
-      d = Chef::Provider::Duplicity.new("duplicity_#{params[:source]}", run_context)
+      d = Chef::Resource::Duplicity.new("duplicity_#{params[:source]}", run_context)
       d.source params[:source]
       d.destination params[:destination]
       d.aws_access_key params[:aws_access_key]
