@@ -6,6 +6,8 @@ description       "Installs and configures duplicity."
 version           "0.2.0"
 recipe            "duplicity", "Installs and configures duplicity"
 
+depends "cron"
+
 %w{ubuntu debian}.each do |os|
   supports os
 end
